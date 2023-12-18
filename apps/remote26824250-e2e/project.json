@@ -1,0 +1,34 @@
+{
+  "name": "remote26824250-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/remote26824250-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/remote26824250-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "remote26824250:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "remote26824250:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "remote26824250:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    }
+  },
+  "implicitDependencies": [
+    "remote26824250"
+  ],
+  "tags": []
+}

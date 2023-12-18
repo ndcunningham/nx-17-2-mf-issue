@@ -1,0 +1,35 @@
+{
+  "name": "shell3778584-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/shell3778584-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/shell3778584-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "shell3778584:serve",
+        "baseUrl": "http://localhost:4200"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "shell3778584:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "shell3778584:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": [
+        "{options.outputFile}"
+      ]
+    }
+  },
+  "implicitDependencies": [
+    "shell3778584"
+  ],
+  "tags": []
+}
